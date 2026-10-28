@@ -13,6 +13,8 @@ export const accelerator = {
   summary: 'Accelerator for media startups building a more informed, connected and empowered society.',
 };
 
+export const conferences = [{ title: 'EuRuKo 2024, the European Ruby Conference', place: 'Sarajevo', year: '2024' }];
+
 export const certificates = [
   {
     title: 'Leadership: Technology and Engineering Management',
@@ -46,6 +48,8 @@ export const certificates = [
   },
   {
     title: 'Mobile Development: Android',
+    // Kept on the website, left out of the two-page CV.
+    cv: false,
     issuer: 'Diplomadosonline.com, endorsed by the Central University of Venezuela',
     year: '2017',
   },

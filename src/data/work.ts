@@ -44,10 +44,11 @@ export const selectedWork: Highlight[] = [
     summary: 'Key results and KPIs that update themselves from the data teams already have.',
     points: [
       'Connect a key result or KPI to a Power BI report or an Excel cell, and its value updates automatically.',
-      'Secure Microsoft sign-in (OAuth) and background jobs that keep the values fresh.',
-      'Also built the Microsoft Teams and Planner integrations.',
+      'Built the Power BI integration and the demo that helped win a large enterprise customer in a competitive vendor evaluation.',
+      'Designed a reusable integration architecture with one shared Microsoft sign-in (OAuth), so the Excel integration shipped much faster.',
+      'Also built the Rails backend (API) behind the Microsoft Teams app, and contributed to the Planner integration.',
     ],
-    cv: 'Key results and KPIs update automatically from Power BI reports and Excel cells through Microsoft Graph and OAuth. Also built the Teams and Planner integrations.',
+    cv: 'Built the Power BI integration and demo that helped win a large enterprise customer in a competitive evaluation; a reusable architecture with shared Microsoft sign-in made Excel much faster to ship. Also built the backend API for the Teams app and contributed to Planner.',
     tags: ['Power BI', 'Excel', 'Microsoft Graph', 'Sidekiq'],
   },
   {
@@ -67,9 +68,10 @@ export const selectedWork: Highlight[] = [
     year: '2021 – 2026',
     summary: 'Core product work and the features large companies need before they can roll out a tool.',
     points: [
-      'User provisioning from identity providers (SCIM, including Okta) and SAML-based user management.',
+      'User provisioning from identity providers (SCIM, including Okta), SAML-based user management and self-service SAML setup for customers.',
       'Role-based permissions, key results calculated from other goals, GraphQL APIs and the activity feed.',
-      'A dedicated production region for an enterprise customer.',
+      'Designed the multi-region architecture and set up a dedicated production region for an enterprise customer.',
+      'Automated recurring support tasks in the admin panel, saving the team hours of manual work every month.',
     ],
     cv: 'SCIM provisioning (incl. Okta), SAML-based user management, role-based permissions, GraphQL APIs and a dedicated production region for an enterprise customer.',
     tags: ['SCIM', 'SAML', 'GraphQL', 'PostgreSQL'],

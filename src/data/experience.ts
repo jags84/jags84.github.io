@@ -23,9 +23,11 @@ export const experience: Job[] = [
     summary:
       'B2B SaaS for strategy execution (OKRs, KPIs, initiatives and business reviews) used by large enterprises, including DAX-listed companies. Go-to engineer for integrations and owner of epics end to end, across backend and frontend.',
     highlights: [
-      'Built and maintained the integrations with Azure DevOps, Jira (Cloud and Data Center), Microsoft Teams, Planner, Excel and Power BI, which also power Workpath\'s AI assistant.',
+      'Built and maintained the integrations with Azure DevOps, Jira (Cloud and Data Center), Excel and Power BI, built the backend API for the Microsoft Teams app and contributed to Planner; the Jira and Azure DevOps integrations also power Workpath\'s AI assistant.',
       'Let key results and KPIs update automatically from Excel and Power BI.',
       'Owned 8 epics end to end in six months (spike → design → tickets → backend → frontend → release) and reviewed 295 pull requests.',
+      'Mentored junior engineers through daily code reviews and pairing.',
+      'Ran the backend technical interviews (live coding and technical questions) and took part in frontend hiring.',
       'Led the framework upgrades from Rails 6 to Rails 8 and Ruby 4, and kept dependencies up to date and secure with Dependabot.',
       'Cut Jira API rate-limit errors by 37% and peak load by 73%, then used production data to find the real root cause.',
       'Implemented SCIM user provisioning (incl. Okta), SAML-driven user transitions and a dedicated production region for an enterprise customer.',
@@ -33,14 +35,16 @@ export const experience: Job[] = [
     ],
     cvHighlights: [
       'Owned 8 epics end to end in six months (spike → design → tickets → backend → frontend → release) and reviewed 295 pull requests.',
+      'Mentored junior engineers through daily code reviews and pairing.',
+      'Ran the backend technical interviews (live coding and technical questions) and took part in frontend hiring.',
     ],
     cvAi: [
-      'Delivered full epics without handovers: as a backend engineer, built most of the React frontend for the Azure DevOps and Jira linking flows with Claude Code.',
+      'Delivered full epics without handovers: as a backend engineer, opened ~30 frontend PRs with Claude Code, including the Azure DevOps and Jira linking flows, with designs pulled in through the Figma MCP.',
       'Investigated production issues and measured the impact of changes using AI with the Grafana MCP server.',
       'Wrote the team\'s CLAUDE.md conventions and reusable skills, wired in MCP servers (Grafana, Figma, Atlassian) and turned lessons from production into AI coding guidelines.',
       'Built the APIs and search that Workpath\'s AI assistant uses to find and link work items.',
     ],
-    stack: ['Ruby on Rails', 'PostgreSQL', 'Sidekiq', 'Redis', 'GraphQL', 'React', 'TypeScript', 'Java', 'Grafana'],
+    stack: ['Ruby on Rails', 'PostgreSQL', 'Sidekiq', 'Redis', 'GraphQL', 'RSpec', 'React', 'TypeScript', 'Java', 'Kubernetes', 'GitHub Actions', 'Grafana'],
   },
   {
     role: 'Senior Backend Developer',

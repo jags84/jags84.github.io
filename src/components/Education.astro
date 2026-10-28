@@ -1,5 +1,5 @@
 ---
-import { education, accelerator, certificates } from '../data/education';
+import { education, accelerator, conferences, certificates } from '../data/education';
 ---
 
 <section class="section" id="education">
@@ -22,6 +22,14 @@ import { education, accelerator, certificates } from '../data/education';
           <p class="muted">{accelerator.school} · {accelerator.year}</p>
           <p>{accelerator.summary}</p>
         </div>
+        {
+          conferences.map((item) => (
+            <div class="entry">
+              <h3>{item.title}</h3>
+              <p class="muted">{item.place} · {item.year}</p>
+            </div>
+          ))
+        }
       </div>
 
       <ul class="certificates">

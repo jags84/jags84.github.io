@@ -17,12 +17,14 @@ const person = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: profile.name,
+  alternateName: [profile.fullName, profile.handle],
   jobTitle: profile.title,
   url: Astro.site?.toString(),
   image: ogImage.toString(),
   worksFor: { '@type': 'Organization', name: 'Workpath', url: 'https://www.workpath.com' },
   address: { '@type': 'PostalAddress', addressCountry: 'ES' },
   knowsLanguage: ['es', 'en'],
+  nationality: { '@type': 'Country', name: 'Spain' },
   sameAs: [profile.links.linkedin, profile.links.github],
 };
 ---

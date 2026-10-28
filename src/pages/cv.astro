@@ -5,7 +5,7 @@ import { profile } from '../data/profile';
 import { experience, earlierExperience } from '../data/experience';
 import { selectedWork } from '../data/work';
 import { skills } from '../data/skills';
-import { education, accelerator, certificates } from '../data/education';
+import { education, accelerator, conferences, certificates } from '../data/education';
 import { Image } from 'astro:assets';
 import photo from '../assets/profile-pic.jpg';
 
@@ -120,7 +120,7 @@ const [workpath, ...otherJobs] = experience;
             ))
           }
           <dt>Languages</dt>
-          <dd>{profile.languages.join(' · ')}</dd>
+          <dd>{[...profile.languages, profile.workAuthorization].join(' · ')}</dd>
         </dl>
       </section>
 
@@ -138,9 +138,17 @@ const [workpath, ...otherJobs] = experience;
           <span><strong>{accelerator.title}</strong> · {accelerator.school}</span>
           <span class="period">{accelerator.year}</span>
         </div>
+        {
+          conferences.map((item) => (
+            <div class="job-head">
+              <span><strong>{item.title}</strong> · {item.place}</span>
+              <span class="period">{item.year}</span>
+            </div>
+          ))
+        }
         <ul class="certs">
           {
-            certificates.map((cert) => (
+            certificates.filter((cert) => cert.cv !== false).map((cert) => (
               <li>
                 <div class="job-head">
                   <span><strong>{cert.title}</strong> · {cert.issuer}</span>
@@ -191,8 +199,8 @@ const [workpath, ...otherJobs] = experience;
         background: #fff;
         color: var(--text);
         font-family: 'Inter Variable', system-ui, sans-serif;
-        font-size: 9.2pt;
-        line-height: 1.42;
+        font-size: 9pt;
+        line-height: 1.4;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }

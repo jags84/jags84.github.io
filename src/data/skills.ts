@@ -1,7 +1,7 @@
 export const skills = [
   {
     group: 'Backend',
-    items: ['Ruby on Rails', 'Ruby', 'PostgreSQL', 'Redis', 'Sidekiq', 'GraphQL', 'REST API design', 'Multi-tenancy'],
+    items: ['Ruby on Rails', 'Ruby', 'PostgreSQL', 'Redis', 'Sidekiq', 'GraphQL', 'REST API design', 'Multi-tenancy', 'RSpec', 'TDD'],
   },
   {
     group: 'Integrations & identity',
@@ -13,7 +13,7 @@ export const skills = [
   },
   {
     group: 'Operations',
-    items: ['Grafana (Loki, Prometheus)', 'Sentry', 'New Relic', 'Incident response', 'Root-cause analysis', 'Data backfills'],
+    items: ['Kubernetes (k9s)', 'GitHub Actions (CI/CD)', 'Grafana (Loki, Prometheus)', 'Sentry', 'New Relic', 'Incident response', 'Root-cause analysis', 'Data backfills'],
   },
   {
     group: 'AI-native engineering',
@@ -21,6 +21,6 @@ export const skills = [
   },
   {
     group: 'Also',
-    items: ['Java (Atlassian SDK)', 'Git & stacked PRs', 'Code review', 'Spikes & design docs'],
+    items: ['Java (Atlassian SDK)', 'Git & stacked PRs', 'Code review', 'Mentoring', 'Spikes & design docs'],
   },
 ];
