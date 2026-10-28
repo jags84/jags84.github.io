@@ -58,6 +58,9 @@ const person = {
     <meta name="twitter:image" content={ogImage} />
 
     {!noindex && <script type="application/ld+json" set:html={JSON.stringify(person)} />}
+
+    <!-- Cookie-free analytics; script is self-hosted, skips localhost and visits from #toggle-goatcounter browsers. -->
+    <script is:inline data-goatcounter="https://jags84.goatcounter.com/count" async src="/js/count.js"></script>
   </head>
   <body>
     <slot />
