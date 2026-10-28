@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "cv": "astro build && node scripts/build-cv.mjs",
+    "cv:photo": "astro build && node scripts/build-cv.mjs --photo"
   },
   "dependencies": {
     "@fontsource-variable/inter": "5.3.0",

@@ -41,8 +41,8 @@ export const projects: Project[] = [
   },
   {
     name: 'Pushem',
-    summary: 'Push notification service.',
-    role: 'Backend, APIs and infrastructure',
+    summary: 'Push notification service built at DADA, launched as its own product and used by DADA in production.',
+    role: 'Entire backend',
     stack: ['Ruby on Rails', 'Node.js', 'Socket.IO', 'PostgreSQL', 'Redis'],
     image: pushem,
   },

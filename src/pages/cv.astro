@@ -1,0 +1,397 @@
+---
+// Print-ready CV built from the same data as the website. `npm run cv` turns it into the PDF.
+import '@fontsource-variable/inter';
+import { profile } from '../data/profile';
+import { experience, earlierExperience } from '../data/experience';
+import { selectedWork } from '../data/work';
+import { skills } from '../data/skills';
+import { education, accelerator, certificates } from '../data/education';
+import { Image } from 'astro:assets';
+import photo from '../assets/profile-pic.jpg';
+
+const site = Astro.site?.host ?? 'jags84.com';
+const linkedin = profile.links.linkedin.replace(/^https:\/\/(www\.)?/, '');
+const github = profile.links.github.replace(/^https:\/\//, '');
+const [workpath, ...otherJobs] = experience;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{profile.name} · CV</title>
+  </head>
+  <body>
+    <main class="cv">
+      <header>
+        <Image src={photo} alt={profile.name} class="photo" width={96} height={96} densities={[1, 2]} loading="eager" />
+        <div class="name">
+          <h1>{profile.name}</h1>
+          <p class="title">{profile.title}</p>
+        </div>
+        <ul class="contact">
+          <li>{profile.location}</li>
+          <li data-email-user={profile.email.user} data-email-domain={profile.email.domain}>{profile.email.user} [at] {profile.email.domain}</li>
+          <li><a href={Astro.site?.toString()}>{site}</a></li>
+          <li><a href={profile.links.linkedin}>{linkedin}</a></li>
+          <li><a href={profile.links.github}>{github}</a></li>
+        </ul>
+      </header>
+
+      <section>
+        <p class="summary">{profile.cvSummary}</p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>{workpath.role} · {workpath.company}</h3>
+            <p class="period">{workpath.period}</p>
+          </div>
+          <p class="meta">{workpath.location}</p>
+          <p class="job-summary">{workpath.summary}</p>
+          <ul>{(workpath.cvHighlights ?? workpath.highlights)?.map((item) => <li>{item}</li>)}</ul>
+          <h4>Key projects</h4>
+          <ul class="projects">
+            {
+              selectedWork.map((work) => (
+                <li>
+                  <strong>{work.title}:</strong> {work.cv}
+                </li>
+              ))
+            }
+          </ul>
+          {
+            workpath.cvAi && (
+              <>
+                <h4>AI-native engineering</h4>
+                <ul>{workpath.cvAi.map((item) => <li>{item}</li>)}</ul>
+              </>
+            )
+          }
+          <p class="stack">{workpath.stack?.join(' · ')}</p>
+        </article>
+
+        {
+          otherJobs.map((job) => (
+            <article class="job">
+              <div class="job-head">
+                <h3>{job.role} · {job.company}</h3>
+                <p class="period">{job.period}</p>
+              </div>
+              {job.location && <p class="meta">{job.location}</p>}
+              <p class="job-summary">{job.summary}</p>
+              {(job.cvHighlights ?? job.highlights)?.length ? (
+                <ul>{(job.cvHighlights ?? job.highlights)?.map((item) => <li>{item}</li>)}</ul>
+              ) : null}
+              {job.stack && <p class="stack">{job.stack.join(' · ')}</p>}
+            </article>
+          ))
+        }
+
+        <h4>Earlier</h4>
+        <ul class="earlier">
+          {
+            earlierExperience.map((job) => (
+              <li>
+                <div class="job-head">
+                  <span><strong>{job.role}</strong> · {job.company}</span>
+                  <span class="period">{job.period}</span>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="keep">
+        <h2>Skills</h2>
+        <dl class="skills">
+          {
+            skills.map((skill) => (
+              <>
+                <dt>{skill.group}</dt>
+                <dd>{skill.items.join(' · ')}</dd>
+              </>
+            ))
+          }
+          <dt>Languages</dt>
+          <dd>{profile.languages.join(' · ')}</dd>
+        </dl>
+      </section>
+
+      <section class="keep">
+        <h2>Education and certificates</h2>
+        {
+          education.map((item) => (
+            <div class="job-head">
+              <span><strong>{item.title}</strong> · {item.school}</span>
+              <span class="period">{item.year}</span>
+            </div>
+          ))
+        }
+        <div class="job-head">
+          <span><strong>{accelerator.title}</strong> · {accelerator.school}</span>
+          <span class="period">{accelerator.year}</span>
+        </div>
+        <ul class="certs">
+          {
+            certificates.map((cert) => (
+              <li>
+                <div class="job-head">
+                  <span><strong>{cert.title}</strong> · {cert.issuer}</span>
+                  <span class="period">{cert.year}</span>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      // `?photo` shows the portrait, for markets where a photo is expected (e.g. Germany).
+      if (new URLSearchParams(location.search).has('photo')) document.documentElement.classList.add('with-photo');
+
+      // Same anti-scraper trick as the website: the address is assembled in the browser.
+      document.querySelectorAll<HTMLElement>('[data-email-user]').forEach((item) => {
+        const address = `${item.dataset.emailUser}@${item.dataset.emailDomain}`;
+        item.innerHTML = '';
+        const link = document.createElement('a');
+        link.href = `mailto:${address}`;
+        link.textContent = address;
+        item.append(link);
+      });
+    </script>
+
+    <style is:global>
+      @page {
+        size: A4;
+        margin: 12mm 14mm;
+      }
+
+      :root {
+        color-scheme: light;
+        --text: #1b1d22;
+        --muted: #5b616e;
+        --accent: #c2410c;
+        --border: #e2ded8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #fff;
+        color: var(--text);
+        font-family: 'Inter Variable', system-ui, sans-serif;
+        font-size: 9.2pt;
+        line-height: 1.42;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .cv {
+        max-width: 180mm;
+        margin: 0 auto;
+      }
+
+      @media screen {
+        body {
+          background: #ebe8e3;
+        }
+
+        .cv {
+          background: #fff;
+          margin: 24px auto;
+          padding: 15mm;
+          max-width: 210mm;
+          box-shadow: 0 2px 16px rgb(0 0 0 / 0.12);
+        }
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .photo {
+        display: none;
+        width: 22mm;
+        height: 22mm;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .with-photo .photo {
+        display: block;
+      }
+
+      .name {
+        flex-grow: 1;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        padding-bottom: 10pt;
+        border-bottom: 2px solid var(--accent);
+      }
+
+      h1 {
+        font-size: 24pt;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin: 0;
+      }
+
+      .title {
+        font-size: 12pt;
+        color: var(--accent);
+        font-weight: 600;
+        margin: 3pt 0 0;
+      }
+
+      .contact {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+        font-size: 8.6pt;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      section {
+        margin-top: 10pt;
+      }
+
+      .keep {
+        break-inside: avoid;
+      }
+
+
+      h2 {
+        font-size: 9pt;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--accent);
+        margin: 0 0 6pt;
+        padding-bottom: 3pt;
+        border-bottom: 1px solid var(--border);
+      }
+
+      h3 {
+        font-size: 10.5pt;
+        margin: 0;
+      }
+
+      h4 {
+        font-size: 9pt;
+        margin: 6pt 0 3pt;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .summary {
+        font-size: 9.8pt;
+      }
+
+      .job {
+        margin-bottom: 8pt;
+      }
+
+      .job-head,
+      .meta {
+        break-after: avoid;
+      }
+
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+      }
+
+      .period {
+        flex-shrink: 0;
+        font-size: 8.6pt;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .meta {
+        font-size: 8.6pt;
+        color: var(--muted);
+      }
+
+      .job-summary {
+        margin: 3pt 0;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 12pt;
+      }
+
+      li {
+        margin-top: 1.5pt;
+      }
+
+      li::marker {
+        color: var(--accent);
+      }
+
+      .projects li {
+        break-inside: avoid;
+      }
+
+      .stack {
+        margin-top: 4pt;
+        font-size: 8.4pt;
+        color: var(--muted);
+      }
+
+      .earlier,
+      .certs {
+        list-style: none;
+        padding: 0;
+      }
+
+      .earlier li + li,
+      .certs li + li {
+        margin-top: 3pt;
+      }
+
+      .earlier p {
+        color: var(--muted);
+        font-size: 8.8pt;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 40mm 1fr;
+        gap: 3pt 10pt;
+        margin: 0;
+      }
+
+      .skills dt {
+        font-weight: 600;
+      }
+
+      .skills dd {
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>

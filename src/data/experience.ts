@@ -6,6 +6,10 @@ export interface Job {
   location?: string;
   summary: string;
   highlights?: string[];
+  // Shorter list for the CV when the key projects already cover the rest.
+  cvHighlights?: string[];
+  // CV-only "AI-native engineering" block.
+  cvAi?: string[];
   stack?: string[];
 }
 
@@ -27,6 +31,15 @@ export const experience: Job[] = [
       'Implemented SCIM user provisioning (incl. Okta), SAML-driven user transitions and a dedicated production region for an enterprise customer.',
       'Brought AI-assisted development into daily team practice: CLAUDE.md conventions, reusable skills and MCP workflows (Grafana, Figma, Atlassian).',
     ],
+    cvHighlights: [
+      'Owned 8 epics end to end in six months (spike → design → tickets → backend → frontend → release) and reviewed 295 pull requests.',
+    ],
+    cvAi: [
+      'Delivered full epics without handovers: as a backend engineer, built most of the React frontend for the Azure DevOps and Jira linking flows with Claude Code.',
+      'Investigated production issues and measured the impact of changes using AI with the Grafana MCP server.',
+      'Wrote the team\'s CLAUDE.md conventions and reusable skills, wired in MCP servers (Grafana, Figma, Atlassian) and turned lessons from production into AI coding guidelines.',
+      'Built the APIs and search that Workpath\'s AI assistant uses to find and link work items.',
+    ],
     stack: ['Ruby on Rails', 'PostgreSQL', 'Sidekiq', 'Redis', 'GraphQL', 'React', 'TypeScript', 'Java', 'Grafana'],
   },
   {
@@ -42,9 +55,15 @@ export const experience: Job[] = [
       'Designed a coverage-lookup module that checked, in real time and for each partner provider, which fiber and coverage options a customer had before showing what could be offered.',
       'Integrated with each telecom provider\'s systems, each with its own format, no documentation and its own way of expecting an address.',
       'Built a modular page builder for the SEO team: reusable header, body and footer modules that could be combined by drag and drop to generate many variants of landing pages.',
-      'Handled deployments on Google Cloud.',
+      'Set up CI/CD for the applications and managed their infrastructure on Google Cloud.',
     ],
-    stack: ['Ruby on Rails', 'PostgreSQL', 'MongoDB', 'Sidekiq', 'GraphQL', 'Go', 'Google Cloud'],
+    cvHighlights: [
+      'Built the telecom sales application from scratch, from coverage check to signed contract.',
+      'Designed a real-time coverage-lookup module across partner providers, each with its own undocumented format.',
+      'Built a drag-and-drop page builder that let the SEO team generate many landing-page variants.',
+      'Set up CI/CD and managed the infrastructure on Google Cloud.',
+    ],
+    stack: ['Ruby on Rails', 'PostgreSQL', 'MongoDB', 'Sidekiq', 'GraphQL', 'Go', 'Node.js', 'Google Cloud'],
   },
   {
     role: 'Lead Developer',
@@ -58,17 +77,25 @@ export const experience: Job[] = [
       'One of the two backend engineers who built the platform.',
       'Wrote the first Ethereum smart contract, used for the first collection DADA sold.',
       'Built the Ethereum marketplace on top of a smart contract, integrated with the Rails platform.',
+      'Built the entire backend of Pushem, a push-notification service launched as its own product and used by DADA in production.',
+      'Maintained the Ubuntu servers and set up CI/CD for the applications.',
       'Took part in the Matter 7 accelerator in New York City with the DADA team (2017).',
     ],
-    stack: ['Ruby on Rails', 'MarionetteJS', 'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'Ethereum', 'Solidity', 'Web3'],
+    cvHighlights: [
+      'One of the two backend engineers who built the platform; maintained its servers and CI/CD.',
+      'Wrote the first Ethereum smart contract (Solidity), used for DADA\'s first collection sale, and built the marketplace on top of it.',
+      'Built the entire backend of Pushem, a push-notification service launched as its own product and used by DADA.',
+    ],
+    stack: ['Ruby on Rails', 'MarionetteJS', 'Node.js', 'Socket.IO', 'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'Ethereum', 'Solidity', 'Web3'],
   },
   {
     role: 'Freelance Developer',
     company: 'PicketFencer',
     period: 'Jul 2017 – Jul 2020',
-    location: 'New York, USA · Remote',
-    summary: 'Home search service covering 600+ New York City suburbs, helping people find houses and apartments in their next hometown.',
+    location: 'New Jersey, USA · Remote',
+    summary: 'Home search service covering 600+ suburbs around New York City, helping people find houses and apartments in their next hometown.',
     highlights: ['Improved and extended their existing web application, shipping new features and changes across backend and frontend.'],
+    cvHighlights: [],
     stack: ['Ruby on Rails', 'JavaScript', 'Bootstrap'],
   },
   {
@@ -81,13 +108,33 @@ export const experience: Job[] = [
       'AlliHay: built the Rails backend of a community app where people checked in good deals they found in nearby stores, so others could find the best prices around them.',
       'Celuseguro: built the Rails back office and the full customer app in CakePHP, from finding your phone model and uploading photos of its condition to payment, financing, policy issuance and a dashboard to manage your policies.',
     ],
+    cvHighlights: [
+      'AlliHay: Rails backend for a community app where people shared the best deals in nearby stores.',
+      'Celuseguro: Rails back office and the full CakePHP customer app, from device check to payment, financing and policy issuance.',
+    ],
     stack: ['Ruby on Rails', 'CakePHP', 'PostgreSQL', 'MySQL', 'PhoneGap'],
   },
 ];
 
+// `details` only shows in the CV; the website keeps these as one-liners.
 export const earlierExperience = [
-  { role: 'IT Support', company: 'Harvest Natural Resources', period: '2011 – 2014' },
-  { role: 'Intern', company: 'FUNVISIS (Venezuelan Foundation for Seismological Research)', period: '2011' },
-  { role: 'Computer Consultant', company: 'Casa Arturo Uslar Pietri Foundation', period: '2007 – 2010' },
+  {
+    role: 'IT Analyst',
+    company: 'Harvest Natural Resources',
+    period: 'Jun 2011 – Jan 2014',
+    details: 'IT support and management of servers and network.',
+  },
+  {
+    role: 'Intern',
+    company: 'FUNVISIS (Venezuelan Foundation for Seismological Research)',
+    period: 'Aug – Oct 2011',
+    details: 'Built a Ruby on Rails application for internal communication across the organization.',
+  },
+  {
+    role: 'Computer Consultant',
+    company: 'Casa Arturo Uslar Pietri Foundation',
+    period: 'Jan 2007 – Jul 2010',
+    details: "Built the foundation's website and a PHP application to manage its database, plus IT support.",
+  },
   { role: 'Computer Consultant', company: 'Municipal Council of Chacao', period: '2006 – 2010' },
 ];

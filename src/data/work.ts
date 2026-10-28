@@ -4,6 +4,8 @@ export interface Highlight {
   year: string;
   summary: string;
   points: string[];
+  // One short line for the CV, result first.
+  cv: string;
   tags: string[];
 }
 
@@ -21,6 +23,7 @@ export const selectedWork: Highlight[] = [
       'Redesigned the Azure DevOps extension and published the new version on the Microsoft Marketplace.',
       'Teams can now link work items from both sides: from Workpath and from inside Azure DevOps.',
     ],
+    cv: 'Built it from scratch, then added Microsoft OAuth alongside access tokens with zero customer disruption, redesigned the extension (Microsoft Marketplace) and enabled linking from both sides.',
     tags: ['Azure DevOps', 'OAuth2', 'Rails', 'React'],
   },
   {
@@ -32,6 +35,7 @@ export const selectedWork: Highlight[] = [
       'Kept it compatible across Jira Cloud and Data Center versions, including the Java plugin for self-hosted Jira.',
       'Extracted shared linking code across integrations, so every new one is cheaper to build.',
     ],
+    cv: 'Built and maintained it across Cloud and Data Center, including the Java plugin; two-way linking to more goals and key results, on shared code that makes each new integration cheaper.',
     tags: ['Jira', 'OAuth2', 'Rails', 'Java'],
   },
   {
@@ -43,6 +47,7 @@ export const selectedWork: Highlight[] = [
       'Secure Microsoft sign-in (OAuth) and background jobs that keep the values fresh.',
       'Also built the Microsoft Teams and Planner integrations.',
     ],
+    cv: 'Key results and KPIs update automatically from Power BI reports and Excel cells through Microsoft Graph and OAuth. Also built the Teams and Planner integrations.',
     tags: ['Power BI', 'Excel', 'Microsoft Graph', 'Sidekiq'],
   },
   {
@@ -54,6 +59,7 @@ export const selectedWork: Highlight[] = [
       'The latest upgrade shipped with zero incidents and found a hidden production bug along the way.',
       'Kept dependencies up to date and secure with Dependabot.',
     ],
+    cv: 'Led every upgrade from Rails 6 to Rails 8.0 and Ruby 4.0; the latest shipped with zero incidents and surfaced a hidden production bug. Dependencies kept current with Dependabot.',
     tags: ['Rails', 'Ruby', 'Security'],
   },
   {
@@ -65,6 +71,7 @@ export const selectedWork: Highlight[] = [
       'Role-based permissions, key results calculated from other goals, GraphQL APIs and the activity feed.',
       'A dedicated production region for an enterprise customer.',
     ],
+    cv: 'SCIM provisioning (incl. Okta), SAML-based user management, role-based permissions, GraphQL APIs and a dedicated production region for an enterprise customer.',
     tags: ['SCIM', 'SAML', 'GraphQL', 'PostgreSQL'],
   },
   {
@@ -76,6 +83,7 @@ export const selectedWork: Highlight[] = [
       'Fixed privacy and security leaks: personal data reaching error tracking, tokens reaching logs, a plugin CVE and a CSRF issue.',
       'Built the structured logging pattern used across all integration code, and cut the integrations worker log volume.',
     ],
+    cv: '−37% Jira rate-limit errors and −73% peak load with retries and staggered scheduling; fixed personal data and tokens leaking to logs and error tracking, a plugin CVE and a CSRF issue.',
     tags: ['Grafana', 'Sentry', 'Incident response'],
   },
 ];
