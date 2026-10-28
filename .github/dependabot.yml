@@ -1,0 +1,16 @@
+version: 2
+updates:
+  # Site dependencies (Astro, fonts). Minor and patch bumps come grouped in one PR.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  # Actions in the deploy workflow; Dependabot keeps the pinned SHAs and version comments in sync.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
