@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jags84.com/sitemap.xml

@@ -1,0 +1,46 @@
+---
+import { skills } from '../data/skills';
+import { profile } from '../data/profile';
+---
+
+<section class="section" id="skills">
+  <div class="container">
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">What I work with.</h2>
+    <div class="grid">
+      {
+        skills.map((skill) => (
+          <div class="card">
+            <h3>{skill.group}</h3>
+            <ul class="tags">
+              {skill.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))
+      }
+      <div class="card">
+        <h3>Languages</h3>
+        <ul class="tags">
+          {profile.languages.map((language) => <li>{language}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
+  }
+</style>

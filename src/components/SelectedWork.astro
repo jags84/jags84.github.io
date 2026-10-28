@@ -1,0 +1,94 @@
+---
+import { selectedWork, workIntro, aiNote } from '../data/work';
+---
+
+<section class="section" id="work">
+  <div class="container">
+    <p class="section-label">Selected work</p>
+    <h2 class="section-title">Highlights from my work at Workpath.</h2>
+    <p class="intro">{workIntro}</p>
+    <div class="grid">
+      {
+        selectedWork.map((item) => (
+          <article class="card">
+            <p class="year">{item.year}</p>
+            <h3>{item.title}</h3>
+            <p class="summary">{item.summary}</p>
+            <ul class="points">
+              {item.points.map((point) => <li>{point}</li>)}
+            </ul>
+            <ul class="tags">
+              {item.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+    <p class="note">{aiNote}</p>
+  </div>
+</section>
+
+<style>
+  .section-title {
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 68ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .note {
+    margin: 1.5rem 0 0;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    max-width: 75ch;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 1.25rem;
+  }
+
+  article {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .year {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .summary {
+    color: var(--muted);
+  }
+
+  .points {
+    padding-left: 1.1rem;
+    margin: 0 0 1.25rem;
+    font-size: 0.95rem;
+    flex-grow: 1;
+  }
+
+  .points li + li {
+    margin-top: 0.4rem;
+  }
+
+  .points li::marker {
+    color: var(--accent);
+  }
+</style>

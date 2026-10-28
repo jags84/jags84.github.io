@@ -1,0 +1,122 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import photo from '../assets/profile-pic.jpg';
+import { profile } from '../data/profile';
+---
+
+<section class="hero container" id="top">
+  <div class="text">
+    <p class="hello">Hello, I'm {profile.name}.</p>
+    <h1>{profile.title}</h1>
+    <p class="tagline">
+      {profile.tagline.split(' · ').map((part, index) => <>{index > 0 && ' · '}<span>{part}</span></>)}
+    </p>
+    <p class="location"><Icon name="pin" size={16} /> {profile.location}</p>
+    <div class="actions">
+      <a class="button primary" href="#contact">Get in touch</a>
+      {
+        profile.resume && (
+          <a class="button" href={profile.resume} target="_blank" rel="noopener">
+            <Icon name="download" size={18} /> Download CV
+          </a>
+        )
+      }
+    </div>
+    <ul class="social">
+      <li><a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Icon name="linkedin" /></a></li>
+      <li><a href={profile.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Icon name="github" /></a></li>
+      <li><a href={profile.links.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Icon name="youtube" /></a></li>
+    </ul>
+  </div>
+  <Image src={photo} alt={`Portrait of ${profile.name}`} class="photo" width={240} height={240} densities={[1, 2]} loading="eager" />
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 3rem;
+    padding-block: 5rem 4.5rem;
+  }
+
+  .hello {
+    font-family: var(--mono);
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+
+  .tagline {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--muted);
+    margin: 1rem 0 0.75rem;
+    max-width: 40ch;
+  }
+
+  .tagline span {
+    white-space: nowrap;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.75rem 0 1.5rem;
+  }
+
+  .social {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .social a {
+    color: var(--muted);
+    display: inline-flex;
+  }
+
+  .social a:hover {
+    color: var(--accent);
+  }
+
+  .photo {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--border), var(--shadow);
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-block: 3rem;
+    }
+
+    .photo {
+      order: -1;
+      width: 128px;
+      height: 128px;
+    }
+  }
+</style>

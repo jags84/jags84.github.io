@@ -1,0 +1,107 @@
+---
+import { education, accelerator, certificates } from '../data/education';
+---
+
+<section class="section" id="education">
+  <div class="container">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Education and certificates.</h2>
+
+    <div class="columns">
+      <div>
+        {
+          education.map((item) => (
+            <div class="entry">
+              <h3>{item.title}</h3>
+              <p class="muted">{item.school} · {item.year}</p>
+            </div>
+          ))
+        }
+        <div class="entry">
+          <h3>{accelerator.title}</h3>
+          <p class="muted">{accelerator.school} · {accelerator.year}</p>
+          <p>{accelerator.summary}</p>
+        </div>
+      </div>
+
+      <ul class="certificates">
+        {
+          certificates.map((cert) => (
+            <li>
+              <h3>
+                {cert.url ? (
+                  <a href={cert.url} target="_blank" rel="noopener noreferrer">{cert.title}</a>
+                ) : (
+                  cert.title
+                )}
+              </h3>
+              <p class="muted">{cert.issuer} · {cert.year}</p>
+              {cert.courses && (
+                <ul class="courses">
+                  {cert.courses.map((course) => (
+                    <li>
+                      <a href={course.url} target="_blank" rel="noopener noreferrer">{course.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+
+  h3 a {
+    text-decoration: none;
+  }
+
+  .muted {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .entry + .entry {
+    margin-top: 1.75rem;
+  }
+
+  .certificates {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .certificates > li + li {
+    margin-top: 1.25rem;
+  }
+
+  .courses {
+    padding-left: 1.1rem;
+    font-size: 0.92rem;
+    margin: 0;
+  }
+
+  .courses li::marker {
+    color: var(--accent);
+  }
+
+  @media (max-width: 760px) {
+    .columns {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
