@@ -81,11 +81,11 @@ export const selectedWork: Highlight[] = [
     year: '2023 – 2026',
     summary: 'Making integrations hold up in production, and measuring it instead of assuming it.',
     points: [
-      'Retries with backoff and staggered scheduling: Jira 429 errors −37%, exhausted retries −45%, peak requests per minute −73%.',
-      'Fixed privacy and security leaks: personal data reaching error tracking, tokens reaching logs, a plugin CVE and a CSRF issue.',
+      'Retrying failed requests automatically and spreading them out over time cut errors from hitting Jira\'s API limits by 37%, requests that failed for good by 45% and peak traffic by 73%.',
+      'Fixed security vulnerabilities.',
       'Built the structured logging pattern used across all integration code, and cut the integrations worker log volume.',
     ],
-    cv: '−37% Jira rate-limit errors and −73% peak load with retries and staggered scheduling; fixed personal data and tokens leaking to logs and error tracking, a plugin CVE and a CSRF issue.',
+    cv: 'Cut errors from hitting Jira\'s API limits by 37% and peak traffic by 73%, by retrying failed requests automatically and spreading them out over time. Also fixed security vulnerabilities.',
     tags: ['Grafana', 'Sentry', 'Incident response'],
   },
 ];
