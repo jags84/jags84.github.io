@@ -24,7 +24,7 @@ export const selectedWork: Highlight[] = [
       'Teams can now link work items from both sides: from Workpath and from inside Azure DevOps.',
     ],
     cv: 'Built it from scratch, then added Microsoft OAuth alongside access tokens with zero customer disruption, redesigned the extension (Microsoft Marketplace) and enabled linking from both sides.',
-    tags: ['Azure DevOps', 'OAuth2', 'Rails', 'React'],
+    tags: ['Azure DevOps', 'OAuth2', 'Rails'],
   },
   {
     title: 'Jira integration (Cloud and Data Center)',

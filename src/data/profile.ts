@@ -20,7 +20,7 @@ export const profile = {
     'Senior Software Engineer with 14+ years building web products, the last 5+ on a B2B strategy-execution SaaS used by large enterprises. Go-to engineer for integrations (Jira, Azure DevOps, Microsoft 365) and the OAuth, sync and reliability work behind them. I own features end to end, from spike and design doc to backend, frontend and production, with AI as a daily part of how I work.',
   about: [
     'I build web products, and I have been doing it for more than 14 years. For the last five I have worked on a B2B strategy-execution SaaS used by large enterprises, where I became the go-to engineer for integrations: Jira, Azure DevOps and the Microsoft 365 stack, plus the OAuth, sync and reliability work that makes them hold up with real enterprise data.',
-    'Today I own features end to end: the spike and the design doc, the tickets, the backend, the frontend and what happens in production afterwards. AI is part of how I work every day, which lets one engineer deliver what used to need a handover between several people, without giving up on design, security or code review.',
+    'Today I own features end to end: the spike and the design doc, the tickets, the backend, the frontend in React (which I build with AI) and what happens in production afterwards. AI is part of how I work every day, which lets one engineer deliver what used to need a handover between several people, without giving up on design, security or code review.',
   ],
 };
 
@@ -39,7 +39,7 @@ export const howIWork = [
   },
   {
     step: 'Build',
-    text: 'Backend with years of Rails experience, frontend in React with AI as a real part of the workflow.',
+    text: 'Backend with years of Rails experience; frontend in React, built with AI as a real part of the workflow.',
   },
   {
     step: 'Ship safely',

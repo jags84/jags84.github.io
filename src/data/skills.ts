@@ -5,11 +5,7 @@ export const skills = [
   },
   {
     group: 'Integrations & identity',
-    items: ['Jira Cloud & Data Center', 'Azure DevOps', 'Microsoft Graph', 'Teams · Planner · Excel · Power BI', 'OAuth2 · JWT', 'SAML · SCIM', 'Webhooks', 'Rate limiting & retries'],
-  },
-  {
-    group: 'Frontend',
-    items: ['React', 'TypeScript', 'React Query', 'Styled-Components', 'Azure DevOps extensions'],
+    items: ['Jira Cloud & Data Center', 'Azure DevOps', 'Microsoft Graph', 'Teams · Planner · Excel · Power BI', 'OAuth2 · JWT', 'SAML · SCIM', 'Azure DevOps extensions', 'Webhooks', 'Rate limiting & retries'],
   },
   {
     group: 'Operations',
@@ -17,7 +13,7 @@ export const skills = [
   },
   {
     group: 'AI-native engineering',
-    items: ['Claude Code', 'CLAUDE.md conventions', 'Reusable skills', 'MCP (Grafana, Figma, Atlassian)'],
+    items: ['Claude Code', 'AI-built frontend (React, TypeScript)', 'CLAUDE.md conventions', 'Reusable skills', 'MCP (Grafana, Figma, Atlassian)'],
   },
   {
     group: 'Also',

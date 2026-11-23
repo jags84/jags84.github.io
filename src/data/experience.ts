@@ -32,6 +32,7 @@ export const experience: Job[] = [
       'Led the framework upgrades from Rails 6 to Rails 8 and Ruby 4, and kept dependencies up to date and secure with Dependabot.',
       'Cut errors from hitting Jira\'s API limits by 37% and peak traffic by 73%, then used production data to find the real root cause.',
       'Implemented SCIM user provisioning (incl. Okta), SAML-driven user transitions and a dedicated production region for an enterprise customer.',
+      'As a backend engineer, built the React frontend of my own epics with Claude Code, so features shipped without a handover.',
       'Brought AI-assisted development into daily team practice: CLAUDE.md conventions, reusable skills and MCP workflows (Grafana, Figma, Atlassian).',
     ],
     cvHighlights: [
@@ -41,12 +42,12 @@ export const experience: Job[] = [
       'Ran the backend technical interviews (live coding and technical questions) and took part in frontend hiring.',
     ],
     cvAi: [
-      'Delivered full epics without handovers: as a backend engineer, also shipped their frontend with Claude Code, including the Azure DevOps and Jira linking flows, with designs pulled in through the Figma MCP.',
+      'Delivered full epics without handovers: as a backend engineer, also shipped their React frontend with Claude Code, including the Azure DevOps and Jira linking flows, with designs pulled in through the Figma MCP.',
       'Investigated production issues and measured the impact of changes using AI with the Grafana MCP server.',
       'Wrote the team\'s CLAUDE.md conventions and reusable skills, wired in MCP servers (Grafana, Figma, Atlassian) and turned lessons from production into AI coding guidelines.',
       'Built the APIs and search that Workpath\'s AI assistant uses to find and link work items.',
     ],
-    stack: ['Ruby on Rails', 'PostgreSQL', 'Sidekiq', 'Redis', 'GraphQL', 'RSpec', 'React', 'TypeScript', 'Java', 'Kubernetes', 'GitHub Actions', 'Grafana'],
+    stack: ['Ruby on Rails', 'PostgreSQL', 'Sidekiq', 'Redis', 'GraphQL', 'RSpec', 'Java', 'Kubernetes', 'GitHub Actions', 'Grafana'],
   },
   {
     role: 'Senior Backend Developer',
@@ -127,7 +128,7 @@ export const earlierExperience = [
   {
     role: 'IT Analyst',
     company: 'Harvest Natural Resources',
-    period: 'Jun 2011 – Jan 2014',
+    period: 'Jun 2011 – Apr 2015',
     details: 'IT support and management of servers and network.',
   },
   {
