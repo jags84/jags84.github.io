@@ -59,6 +59,7 @@ export const selectedWork: Highlight[] = [
       'Rails 6 → 7 → 7.1 → 7.2 → 8.0 and Ruby up to 4.0, step by step and without disrupting the team.',
       'The latest upgrade shipped with zero incidents and found a hidden production bug along the way.',
       'Kept dependencies up to date and secure with Dependabot.',
+      'Hardened authentication and access rules, and improved test coverage and stability.',
     ],
     cv: 'Led every upgrade from Rails 6 to Rails 8.0 and Ruby 4.0; the latest shipped with zero incidents and surfaced a hidden production bug. Dependencies kept current with Dependabot.',
     tags: ['Rails', 'Ruby', 'Security'],

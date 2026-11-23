@@ -26,6 +26,7 @@ export const experience: Job[] = [
       'Built and maintained the integrations with Azure DevOps, Jira (Cloud and Data Center), Excel and Power BI, built the backend API for the Microsoft Teams app and contributed to Planner; the Jira and Azure DevOps integrations also power Workpath\'s AI assistant.',
       'Let key results and KPIs update automatically from Excel and Power BI.',
       'Owned 8 epics end to end in six months (spike → design → tickets → backend → frontend → release) and reviewed 295 pull requests.',
+      'Technical owner of customer escalations in my areas, from root-cause analysis to data fixes.',
       'Mentored junior engineers through daily code reviews and pairing.',
       'Ran the backend technical interviews (live coding and technical questions) and took part in frontend hiring.',
       'Led the framework upgrades from Rails 6 to Rails 8 and Ruby 4, and kept dependencies up to date and secure with Dependabot.',
@@ -35,6 +36,7 @@ export const experience: Job[] = [
     ],
     cvHighlights: [
       'Owned 8 epics end to end in six months (spike → design → tickets → backend → frontend → release) and reviewed 295 pull requests.',
+      'Technical owner of customer escalations in my areas, from root-cause analysis to data fixes.',
       'Mentored junior engineers through daily code reviews and pairing.',
       'Ran the backend technical interviews (live coding and technical questions) and took part in frontend hiring.',
     ],
